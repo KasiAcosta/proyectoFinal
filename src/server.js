@@ -1,18 +1,18 @@
 const express=require("express");
-const {routerProducto} = require("./src/routes/products.js")
-const {routerCarrito} = require("./src/routes/carts.js")
-const {routerMensajes} = require("./src/routes/messages.js")
+const {routerProducto} = require("./routes/products.js")
+const {routerCarrito} = require("./routes/carts.js")
+const {routerMensajes} = require("./routes/messages.js")
 const{Server:http}=require ("http");
 const {Server:ioServer}=require ("socket.io");
-const {saveMsjs, getMsjs, sendMail,deleteCartBuy}=require ("./public/js/send.js")
+const {saveMsjs, getMsjs, sendMail,deleteCartBuy}=require ("../public/js/send.js")
 const session =require("express-session")
 const MongoStore=require("connect-mongo");
 const passport = require("passport");
-const { db } = require("./src/schema/schemaCarts.js");
+const { db } = require("./schema/schemaCarts.js");
 const {
   loggerDev,
   loggerProd
-} = require("./src/loggers/logger_config.js");
+} = require("./loggers/logger_config.js");
 const NODE_ENV = process.env.NODE_ENV || "development";
 const logger = NODE_ENV === "production"
 ? loggerProd
